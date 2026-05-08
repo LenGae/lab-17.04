@@ -1,6 +1,5 @@
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\MainWindow.g.cs
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\App.g.cs
-C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\WpfApp2_MarkupCompile.cache
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\WpfApp2_MarkupCompile.lref
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\bin\Debug\net9.0-windows\WpfApp2.exe
@@ -19,3 +18,8 @@ C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\refint\W
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\WpfApp2.pdb
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\WpfApp2.genruntimeconfig.cache
 C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\ref\WpfApp2.dll
+C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\WpfApp2.csproj.AssemblyReference.cache
+C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\WpfApp2.sourcelink.json
+C:\Users\LeymanSE\source\repos\WpfApp2\WpfApp2\obj\Debug\net9.0-windows\WpfApp2.csproj.Up2Date
