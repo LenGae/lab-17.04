@@ -1,48 +1,13 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
 
 namespace WpfApp2.Models;
 
-public class Contact : ObservableObject
+public partial class Contact
 {
-    private string _name = "";
-    private string _phone = "";
+    public int Id { get; set; }
 
-    public Contact(string name, string phone)
-    {
-        _name = name;
-        _phone = phone;
+    public string Name { get; set; } = null!;
 
-        if (!Validate())
-            throw new ArgumentException("Некорректное имя или телефон");
-    }
-
-    public string Name
-    {
-        get => _name;
-        set
-        {
-            Set(ref _name, value);
-            if (!Validate())
-                throw new ArgumentException("Некорректное имя");
-        }
-    }
-
-    public string Phone
-    {
-        get => _phone;
-        set
-        {
-            Set(ref _phone, value);
-            if (!Validate())
-                throw new ArgumentException("Некорректный телефон");
-        }
-    }
-
-    public bool Validate()
-    {
-        if (string.IsNullOrWhiteSpace(Name))
-            return false;
-
-        return Regex.IsMatch(Phone, @"^(\+7\d{10}|\d{10,11})$");
-    }
+    public string Phone { get; set; } = null!;
 }

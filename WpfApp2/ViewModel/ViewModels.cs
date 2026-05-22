@@ -8,6 +8,7 @@ namespace WpfApp2.ViewModel;
 public class ViewModels : ObservableObject
 {
     private readonly IDialogService _dialogService;
+    private readonly PhoneBookContext _context;
 
     private string _name = "";
 
@@ -51,9 +52,21 @@ public class ViewModels : ObservableObject
 
     public RelayCommand DeleteCommand { get; }
 
-    public ViewModels(IDialogService dialogService)
+    public ViewModels(IDialogService dialogService, PhoneBookContext context)
     {
         _dialogService = dialogService;
+        _context = context;
+
+        try
+        {
+            var databaseContacts = _context.Contacts.ToList();
+            Contacts = new ObservableCollection<Contact>(databaseContacts);
+        }
+        catch (Exception ex)
+        {
+            _dialogService.ShowError("Ошибка подключения к БД: " + ex.Message);
+            Contacts = new ObservableCollection<Contact>();
+        }
 
         AddCommand = new RelayCommand(Add, CanAdd);
         DeleteCommand = new RelayCommand(Delete, CanDelete);
@@ -63,25 +76,27 @@ public class ViewModels : ObservableObject
     {
         try
         {
-            if (Contacts.Any(c => c.Phone == Phone))
+            if (_context.Contacts.Any(c => c.Phone == Phone))
             {
-                _dialogService.ShowWarning(
-                    "Контакт с таким номером уже существует!");
-
+                _dialogService.ShowWarning("Контакт с таким номером уже существует!");
                 return;
             }
 
-            Contacts.Add(new Contact(Name, Phone));
+            var newContact = new Contact { Name = this.Name, Phone = this.Phone };
 
-            _dialogService.ShowInfo(
-                "Контакт успешно добавлен!");
+            _context.Contacts.Add(newContact);
+            _context.SaveChanges();
+
+            Contacts.Add(newContact);
+
+            _dialogService.ShowInfo("Контакт успешно добавлен в базу!");
 
             Name = "";
             Phone = "";
         }
         catch (Exception ex)
         {
-            _dialogService.ShowError(ex.Message);
+            _dialogService.ShowError("Ошибка при сохранении: " + ex.Message);
         }
     }
 
