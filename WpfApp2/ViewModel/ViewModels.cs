@@ -10,6 +10,8 @@ public class ViewModels : ObservableObject
     private readonly IDialogService _dialogService;
     private readonly PhoneBookContext _context;
 
+    public ObservableCollection<Contact> Contacts { get; set; }
+
     private string _name = "";
 
     public string Name
@@ -19,6 +21,7 @@ public class ViewModels : ObservableObject
         {
             Set(ref _name, value);
             AddCommand.NotifyCanExecuteChanged();
+            UpdateCommand.NotifyCanExecuteChanged();
         }
     }
 
@@ -31,10 +34,9 @@ public class ViewModels : ObservableObject
         {
             Set(ref _phone, value);
             AddCommand.NotifyCanExecuteChanged();
+            UpdateCommand.NotifyCanExecuteChanged();
         }
     }
-
-    public ObservableCollection<Contact> Contacts { get; } = [];
 
     private Contact? _selectedContact;
 
@@ -44,7 +46,15 @@ public class ViewModels : ObservableObject
         set
         {
             Set(ref _selectedContact, value);
+
+            if (value != null)
+            {
+                Name = value.Name;
+                Phone = value.Phone;
+            }
+
             DeleteCommand.NotifyCanExecuteChanged();
+            UpdateCommand.NotifyCanExecuteChanged();
         }
     }
 
@@ -52,24 +62,39 @@ public class ViewModels : ObservableObject
 
     public RelayCommand DeleteCommand { get; }
 
-    public ViewModels(IDialogService dialogService, PhoneBookContext context)
+    public RelayCommand UpdateCommand { get; }
+
+    public ViewModels(IDialogService dialogService,
+        PhoneBookContext context)
     {
         _dialogService = dialogService;
         _context = context;
 
         try
         {
-            var databaseContacts = _context.Contacts.ToList();
-            Contacts = new ObservableCollection<Contact>(databaseContacts);
+            var databaseContacts =
+                _context.Contacts.ToList();
+
+            Contacts =
+                new ObservableCollection<Contact>(
+                    databaseContacts);
         }
         catch (Exception ex)
         {
-            _dialogService.ShowError("Ошибка подключения к БД: " + ex.Message);
+            _dialogService.ShowError(
+                "Ошибка подключения к БД: " + ex.Message);
+
             Contacts = new ObservableCollection<Contact>();
         }
 
-        AddCommand = new RelayCommand(Add, CanAdd);
-        DeleteCommand = new RelayCommand(Delete, CanDelete);
+        AddCommand =
+            new RelayCommand(Add, CanAdd);
+
+        DeleteCommand =
+            new RelayCommand(Delete, CanDelete);
+
+        UpdateCommand =
+            new RelayCommand(Update, CanUpdate);
     }
 
     private void Add()
@@ -78,32 +103,68 @@ public class ViewModels : ObservableObject
         {
             if (_context.Contacts.Any(c => c.Phone == Phone))
             {
-                _dialogService.ShowWarning("Контакт с таким номером уже существует!");
+                _dialogService.ShowWarning(
+                    "Контакт с таким номером уже существует!");
+
                 return;
             }
 
-            var newContact = new Contact { Name = this.Name, Phone = this.Phone };
+            var newContact = new Contact
+            {
+                Name = Name,
+                Phone = Phone
+            };
 
             _context.Contacts.Add(newContact);
+
             _context.SaveChanges();
 
             Contacts.Add(newContact);
 
-            _dialogService.ShowInfo("Контакт успешно добавлен в базу!");
+            _dialogService.ShowInfo(
+                "Контакт успешно добавлен!");
 
             Name = "";
             Phone = "";
         }
         catch (Exception ex)
         {
-            _dialogService.ShowError("Ошибка при сохранении: " + ex.Message);
+            _dialogService.ShowError(
+                "Ошибка при добавлении: " + ex.Message);
         }
     }
 
     private bool CanAdd()
     {
-        return !string.IsNullOrWhiteSpace(Name) &&
-               !string.IsNullOrWhiteSpace(Phone);
+        return !string.IsNullOrWhiteSpace(Name)
+            && !string.IsNullOrWhiteSpace(Phone);
+    }
+
+    private void Update()
+    {
+        if (SelectedContact == null)
+            return;
+
+        try
+        {
+            SelectedContact.Name = Name;
+            SelectedContact.Phone = Phone;
+
+            _context.SaveChanges();
+
+            _dialogService.ShowInfo(
+                "Контакт успешно обновлён!");
+        }
+        catch (Exception ex)
+        {
+            _dialogService.ShowError(
+                "Ошибка при обновлении: " + ex.Message);
+        }
+    }
+
+    private bool CanUpdate()
+    {
+        return SelectedContact != null;
     }
 
     private void Delete()
@@ -118,10 +179,22 @@ public class ViewModels : ObservableObject
         if (!confirm)
             return;
 
-        Contacts.Remove(SelectedContact);
+        try
+        {
+            _context.Contacts.Remove(SelectedContact);
 
-        _dialogService.ShowInfo(
-            "Контакт удалён.");
+            _context.SaveChanges();
+
+            Contacts.Remove(SelectedContact);
+
+            _dialogService.ShowInfo(
+                "Контакт удалён.");
+        }
+        catch (Exception ex)
+        {
+            _dialogService.ShowError(
+                "Ошибка при удалении: " + ex.Message);
+        }
     }
 
     private bool CanDelete()

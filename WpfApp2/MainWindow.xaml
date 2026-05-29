@@ -22,6 +22,7 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button Content="Add" Command="{Binding AddCommand}"/>
+            <Button Content="Update" Command="{Binding UpdateCommand}"/>
             <Button Content="Delete" Command="{Binding DeleteCommand}"/>
         </StackPanel>
 
