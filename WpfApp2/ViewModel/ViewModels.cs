@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 using System.Linq;
 using WpfApp2.Models;
 using WpfApp2.Services;
@@ -8,9 +9,10 @@ namespace WpfApp2.ViewModel;
 public class ViewModels : ObservableObject
 {
     private readonly IDialogService _dialogService;
-    private readonly PhoneBookContext _context;
+    private readonly IDbContextFactory<PhoneBookContext> _contextFactory;
 
     public ObservableCollection<Contact> Contacts { get; set; }
+        = new ObservableCollection<Contact>();
 
     private string _name = "";
 
@@ -59,25 +61,32 @@ public class ViewModels : ObservableObject
     }
 
     public RelayCommand AddCommand { get; }
-
     public RelayCommand DeleteCommand { get; }
-
     public RelayCommand UpdateCommand { get; }
 
-    public ViewModels(IDialogService dialogService,
-        PhoneBookContext context)
+    public ViewModels(
+        IDialogService dialogService,
+        IDbContextFactory<PhoneBookContext> contextFactory)
     {
         _dialogService = dialogService;
-        _context = context;
+        _contextFactory = contextFactory;
 
+        LoadContacts();
+
+        AddCommand = new RelayCommand(Add, CanAdd);
+        DeleteCommand = new RelayCommand(Delete, CanDelete);
+        UpdateCommand = new RelayCommand(Update, CanUpdate);
+    }
+
+    private void LoadContacts()
+    {
         try
         {
-            var databaseContacts =
-                _context.Contacts.ToList();
+            using var context =
+                _contextFactory.CreateDbContext();
 
-            Contacts =
-                new ObservableCollection<Contact>(
-                    databaseContacts);
+            Contacts = new ObservableCollection<Contact>(
+                context.Contacts.ToList());
         }
         catch (Exception ex)
         {
@@ -86,22 +95,16 @@ public class ViewModels : ObservableObject
 
             Contacts = new ObservableCollection<Contact>();
         }
-
-        AddCommand =
-            new RelayCommand(Add, CanAdd);
-
-        DeleteCommand =
-            new RelayCommand(Delete, CanDelete);
-
-        UpdateCommand =
-            new RelayCommand(Update, CanUpdate);
     }
 
     private void Add()
     {
         try
         {
-            if (_context.Contacts.Any(c => c.Phone == Phone))
+            using var context =
+                _contextFactory.CreateDbContext();
+
+            if (context.Contacts.Any(c => c.Phone == Phone))
             {
                 _dialogService.ShowWarning(
                     "Контакт с таким номером уже существует!");
@@ -115,9 +118,8 @@ public class ViewModels : ObservableObject
                 Phone = Phone
             };
 
-            _context.Contacts.Add(newContact);
-
-            _context.SaveChanges();
+            context.Contacts.Add(newContact);
+            context.SaveChanges();
 
             Contacts.Add(newContact);
 
@@ -147,10 +149,27 @@ public class ViewModels : ObservableObject
 
         try
         {
+            using var context =
+                _contextFactory.CreateDbContext();
+
+            var contactToUpdate =
+                context.Contacts.Find(SelectedContact.Id);
+
+            if (contactToUpdate == null)
+            {
+                _dialogService.ShowWarning(
+                    "Контакт не найден!");
+
+                return;
+            }
+
+            contactToUpdate.Name = Name;
+            contactToUpdate.Phone = Phone;
+
+            context.SaveChanges();
+
             SelectedContact.Name = Name;
             SelectedContact.Phone = Phone;
-
-            _context.SaveChanges();
 
             _dialogService.ShowInfo(
                 "Контакт успешно обновлён!");
@@ -181,9 +200,22 @@ public class ViewModels : ObservableObject
 
         try
         {
-            _context.Contacts.Remove(SelectedContact);
+            using var context =
+                _contextFactory.CreateDbContext();
 
-            _context.SaveChanges();
+            var contactToDelete =
+                context.Contacts.Find(SelectedContact.Id);
+
+            if (contactToDelete == null)
+            {
+                _dialogService.ShowWarning(
+                    "Контакт не найден!");
+
+                return;
+            }
+
+            context.Contacts.Remove(contactToDelete);
+            context.SaveChanges();
 
             Contacts.Remove(SelectedContact);
 

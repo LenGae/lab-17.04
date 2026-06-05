@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|solutionrelative:wpfapp2\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|solutionrelative:wpfapp2\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\viewmodel\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,12 +35,12 @@
       "RelativeMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|solutionrelative:wpfapp2\\models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|solutionrelative:wpfapp2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|solutionrelative:wpfapp2\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|solutionrelative:wpfapp2\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|solutionrelative:wpfapp2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{626A6032-9A15-428D-AA05-AE7836E5FE63}|WpfApp2\\WpfApp2.csproj|c:\\users\\leymanse\\source\\repos\\wpfapp2\\wpfapp2\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,17 +62,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\App.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp2\\App.xaml.cs",
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\App.xaml.cs",
               "RelativeToolTip": "WpfApp2\\App.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAkwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T02:07:59.041Z",
               "EditorCaption": ""
@@ -98,7 +98,7 @@
               "RelativeDocumentMoniker": "WpfApp2\\ViewModel\\ViewModels.cs",
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\ViewModel\\ViewModels.cs",
               "RelativeToolTip": "WpfApp2\\ViewModel\\ViewModels.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAkwLgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAswNsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-10T03:53:01.423Z",
               "EditorCaption": ""
@@ -111,7 +111,7 @@
               "RelativeDocumentMoniker": "WpfApp2\\Models\\Contact.cs",
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\Models\\Contact.cs",
               "RelativeToolTip": "WpfApp2\\Models\\Contact.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-17T03:44:33.094Z",
               "EditorCaption": ""
@@ -124,14 +124,14 @@
               "RelativeDocumentMoniker": "WpfApp2\\Models\\ObservableObject.cs",
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\Models\\ObservableObject.cs",
               "RelativeToolTip": "WpfApp2\\Models\\ObservableObject.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-10T03:58:42.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfApp2\\MainWindow.xaml.cs",
@@ -144,15 +144,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WpfApp2\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\MainWindow.xaml",
               "RelativeToolTip": "WpfApp2\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-10T03:50:37.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-10T03:50:37.712Z"
             },
             {
               "$type": "Document",
@@ -162,7 +161,7 @@
               "RelativeDocumentMoniker": "WpfApp2\\Models\\PhoneBookContext.cs",
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\Models\\PhoneBookContext.cs",
               "RelativeToolTip": "WpfApp2\\Models\\PhoneBookContext.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAcwB0AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwBIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-22T04:18:34.268Z",
               "EditorCaption": ""
@@ -188,7 +187,7 @@
               "RelativeDocumentMoniker": "WpfApp2\\Services\\DialogService.cs",
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\Services\\DialogService.cs",
               "RelativeToolTip": "WpfApp2\\Services\\DialogService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAYwBsAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwB8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T02:02:04.764Z",
               "EditorCaption": ""
@@ -226,8 +225,7 @@
               "ToolTip": "C:\\Users\\LeymanSE\\source\\repos\\WpfApp2\\WpfApp2\\App.xaml",
               "RelativeToolTip": "WpfApp2\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-08T02:03:26.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-08T02:03:26.821Z"
             }
           ]
         }

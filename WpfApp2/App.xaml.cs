@@ -16,7 +16,7 @@ public partial class App : Application
         base.OnStartup(e);
         var services = new ServiceCollection();
 
-        services.AddDbContext<PhoneBookContext>(options =>
+        services.AddDbContextFactory<PhoneBookContext>(options =>
         options.UseSqlServer(
         "connectionString"));
 
